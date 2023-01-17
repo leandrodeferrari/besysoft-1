@@ -31,4 +31,9 @@ public class PeliculaSerieControlador {
         return DatosDummyUtilidad.buscarPeliculasSeriesPorNombreDeGenero(nombreGenero);
     }
 
+    @GetMapping("/personaje/{nombre}")
+    public List<PeliculaSerie> buscarPeliculasSeriesPorNombreDePersonaje(@PathVariable("nombre") String nombrePersonaje){
+        return DatosDummyUtilidad.buscarPeliculasSeriesPorNombreDePersonaje(nombrePersonaje);
+    }
+
 }

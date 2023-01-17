@@ -25,4 +25,5 @@ public class PersonajePeliculaSerie {
     public void setPeliculaSerie(PeliculaSerie peliculaSerie) {
         this.peliculaSerie = peliculaSerie;
     }
+
 }

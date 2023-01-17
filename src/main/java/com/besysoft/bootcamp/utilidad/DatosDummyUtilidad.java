@@ -122,7 +122,7 @@ public class DatosDummyUtilidad {
             throw new NullPointerException("Nombre nulo");
         }
 
-        if(!ValidacionGeneralUtilidad.validarQueContengaLetras(nombre)){
+        if(!ValidacionGeneralUtilidad.contieneSoloLetras(nombre)){
             throw new IllegalArgumentException("Nombre inválido");
         }
 
@@ -158,7 +158,7 @@ public class DatosDummyUtilidad {
             throw new NullPointerException("Título nulo");
         }
 
-        if(!ValidacionGeneralUtilidad.validarQueContengaLetras(titulo)){
+        if(!ValidacionGeneralUtilidad.contieneSoloLetras(titulo)){
             throw new IllegalArgumentException("Título inválido");
         }
 
@@ -177,7 +177,7 @@ public class DatosDummyUtilidad {
             throw new NullPointerException("Nombre de género nulo");
         }
 
-        if(!ValidacionGeneralUtilidad.validarQueContengaLetras(nombreGenero)){
+        if(!ValidacionGeneralUtilidad.contieneSoloLetras(nombreGenero)){
             throw new IllegalArgumentException("Nombre de género inválido");
         }
 
@@ -187,6 +187,52 @@ public class DatosDummyUtilidad {
         return peliculasSeries.stream()
                 .filter(peliculaSerie -> peliculaSerie.getGenero().getNombre().equalsIgnoreCase(nombreGenero))
                 .collect(Collectors.toList());
+
+    }
+
+    public static List<PeliculaSerie> buscarPeliculasSeriesPorNombreDePersonaje(String nombrePersonaje){
+
+        if(nombrePersonaje == null){
+            throw new NullPointerException("Nombre de personaje nulo");
+        }
+
+        if(!ValidacionGeneralUtilidad.contieneSoloLetras(nombrePersonaje)){
+            throw new IllegalArgumentException("Nombre de personaje inválido");
+        }
+
+        List<Genero> generos = generarGeneros();
+        List<PeliculaSerie> peliculasSeries  = generarPeliculasSeries(generos);
+        List<Personaje> personajes = generarPersonajes();
+
+        List<PersonajePeliculaSerie> personajesPeliculaSeries =
+                generarPersonajesPeliculasSeries(personajes, peliculasSeries);
+
+        return personajesPeliculaSeries.stream()
+                .filter(pps -> pps.getPersonaje().getNombre().equalsIgnoreCase(nombrePersonaje))
+                .map(PersonajePeliculaSerie::getPeliculaSerie).collect(Collectors.toList());
+
+    }
+
+    public static List<Personaje> buscarPersonajesPorTituloDePeliculaSerie(String tituloPeliculaSerie){
+
+        if(tituloPeliculaSerie == null){
+            throw new NullPointerException("Título de pelicula/serie nulo");
+        }
+
+        if(!ValidacionGeneralUtilidad.contieneSoloLetras(tituloPeliculaSerie)){
+            throw new IllegalArgumentException("Título de pelicula/serie inválido");
+        }
+
+        List<Genero> generos = generarGeneros();
+        List<PeliculaSerie> peliculasSeries  = generarPeliculasSeries(generos);
+        List<Personaje> personajes = generarPersonajes();
+
+        List<PersonajePeliculaSerie> personajesPeliculasSeries =
+                generarPersonajesPeliculasSeries(personajes, peliculasSeries);
+
+        return personajesPeliculasSeries.stream()
+                .filter(pps -> pps.getPeliculaSerie().getTitulo().equalsIgnoreCase(tituloPeliculaSerie))
+                .map(PersonajePeliculaSerie::getPersonaje).collect(Collectors.toList());
 
     }
 

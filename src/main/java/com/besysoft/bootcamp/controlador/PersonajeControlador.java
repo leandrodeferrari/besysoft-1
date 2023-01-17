@@ -29,4 +29,9 @@ public class PersonajeControlador {
         return DatosDummyUtilidad.buscarPersonajesPorEdad(edad);
     }
 
+    @GetMapping("/pelicula-serie/{titulo}")
+    public List<Personaje> buscarPersonajesPorTituloDePeliculaSerie(@PathVariable String titulo){
+        return DatosDummyUtilidad.buscarPersonajesPorTituloDePeliculaSerie(titulo);
+    }
+
 }

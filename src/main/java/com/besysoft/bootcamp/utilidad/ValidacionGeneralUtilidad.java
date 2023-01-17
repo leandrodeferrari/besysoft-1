@@ -2,7 +2,7 @@ package com.besysoft.bootcamp.utilidad;
 
 public class ValidacionGeneralUtilidad {
 
-    public static boolean validarQueContengaLetras(String texto){
+    public static boolean contieneSoloLetras(String texto){
         return texto.matches("^[a-zA-Z]+$");
     }
 
