@@ -2,22 +2,16 @@ package com.besysoft.bootcamp.dominio;
 
 public class Personaje {
 
-    private final Integer id;
     private String nombre;
     private Byte edad;
     private Float peso;
     private String historia;
 
-    public Personaje(Integer id, String nombre, Byte edad, Float peso, String historia) {
-        this.id = id;
+    public Personaje(String nombre, Byte edad, Float peso, String historia) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
         this.historia = historia;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getNombre() {

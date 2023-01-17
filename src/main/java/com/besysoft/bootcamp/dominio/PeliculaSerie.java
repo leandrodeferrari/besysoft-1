@@ -4,22 +4,16 @@ import java.time.LocalDate;
 
 public class PeliculaSerie {
 
-    private final Integer id;
     private String titulo;
     private LocalDate fechaDeCreacion;
     private Byte calificacion;
     private Genero genero;
 
-    public PeliculaSerie(Integer id, String titulo, LocalDate fechaDeCreacion, Byte calificacion, Genero genero) {
-        this.id = id;
+    public PeliculaSerie(String titulo, LocalDate fechaDeCreacion, Byte calificacion, Genero genero) {
         this.titulo = titulo;
         this.fechaDeCreacion = fechaDeCreacion;
         this.calificacion = calificacion;
         this.genero = genero;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getTitulo() {

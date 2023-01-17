@@ -2,18 +2,12 @@ package com.besysoft.bootcamp.dominio;
 
 public class PersonajePeliculaSerie {
 
-    private final Integer id;
     private Personaje personaje;
     private PeliculaSerie peliculaSerie;
 
-    public PersonajePeliculaSerie(Integer id, Personaje personaje, PeliculaSerie peliculaSerie) {
-        this.id = id;
+    public PersonajePeliculaSerie(Personaje personaje, PeliculaSerie peliculaSerie) {
         this.personaje = personaje;
         this.peliculaSerie = peliculaSerie;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public Personaje getPersonaje() {
@@ -31,5 +25,4 @@ public class PersonajePeliculaSerie {
     public void setPeliculaSerie(PeliculaSerie peliculaSerie) {
         this.peliculaSerie = peliculaSerie;
     }
-
 }
